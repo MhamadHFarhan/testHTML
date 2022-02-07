@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <script src="https://code.jquery.com/jquery-3.6.0.js"
         integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-    <title>Back-end Development</title>
+    <title>Linux Fundamentals</title>
     <style>
         /* From extension vscode.github */
         .vscode-dark img[src$=\#gh-light-mode-only],
@@ -1367,203 +1367,319 @@
 </head>
 
 <body class="vscode-body vscode-light">
-    <h1 id="back-end-development"><b>Back-end Development</b></h1>
+    <h1 id="linux-fundamentals"><b>Linux Fundamentals</b></h1>
     <h2 id="high-level-goals"><b>High Level Goals</b></h2>
     <p>By the end of this lesson, you will be familiar with the following:</p>
-    <ul>
-        <li>Back-end development</li>
-        <li>NodeJS</li>
-        <li>NPM</li>
-        <li>JSON</li>
-        <li>ExpressJS</li>
-    </ul>
-    <h2 id="what-is-back-end-development"><b>What Is Back-end Development</b></h2>
-    <p>Back-end development is the process of writing and developing code to be ran on the server side. Unlike the
-        client-side, the server-side code doesn't run on the client's devices, rather it runs on the server that is
-        hosting the application. Servers can be local or remote and have many types. We will mostly be using servers to
-        accept requests from the client, handle these requests, and to connect the various parts of our application such
-        as the client-side and the database.</p>
-    <p>There are many languages and frameworks that are used to develop servers. In this course we will be learning
-        NodeJS.</p>
-    <p><img src="file:///d:\Meraki Academy\C4\New folder\illustrations\W07D01\server.png" alt="server"></p>
-    <h2 id="nodejs"><b>NodeJS</b></h2>
-    <p>NodeJS is an asynchronous event-driven JavaScript runtime environment that is used to build scalable
-        applications. In other words, NodeJS enables JavaScript to be used in the back-end.</p>
-    <p>We will be using NodeJS to listen to some asynchronous events (client-side requests). As an example, have you
-        ever wondered what happens after you login to some website? Basically the client side will send an HTTP request
-        with the information provided by the user to the server which can be made using NodeJS or other programming
-        languages like Python. After the server receives the request, it will handle it and in the case of logging in it
-        will query some information from the database and compare both of the passwords after decrypting the saved one.
-        Assuming the process is all good and the user is an actual valid user, then it will send a response back to the
-        client-side that will indicate that the login has succeeded.</p>
-    <h3 id="nodejs-installation"><b>NodeJS Installation</b></h3>
-    <p>In order to download NodeJS use the following link <a
-            href="https://nodejs.org/en/download/">https://nodejs.org/en/download</a>. After the download is finished,
-        open the file to install NodeJS.</p>
-    <h3 id="using-nodejs"><b>Using NodeJS</b></h3>
-    <p>In order to use NodeJS open the command line (any of the following: <code>command prompt</code>,
-        <code>git bash</code>, <code>terminal</code>, <code>powershell</code>, etc.) and type in <code>node</code> then
-        press enter. Now it is possible to type and execute JavaScript code in the command line. To exit or stop node
-        press <code>ctrl + c</code> twice.
-    </p>
-    <p>NodeJS can also execute JS files by typing in <code>node</code> followed by the name of the file such as
-        <code>node main.js</code>.
-    </p>
-    <h3 id="nodejs-package-manager-npm"><b>NodeJS Package Manager (NPM)</b></h3>
-    <p>NodeJS has an ecosystem of Node-based tools that can be used to automate parts of the application and can be used
-        to do various tasks in general. You can use NPM to access these community based packages. NPM is installed
-        alongside NodeJS and can be used directly from the command line.</p>
-    <h3 id="using-npm"><b>Using NPM</b></h3>
-    <p>In order to manage our package, open the terminal, navigate to the desired folder, and type
-        <code>npm init -y</code>. This command will initialize a <code>package.json</code> file that will be used to
-        keep track of our packages.
-    </p>
-    <p>In order to install a package you will need to type in the command line <code>npm install package-name</code> or
-        <code>npm i package-name</code>. Check out the following documentation for more information on what NPM can do
-        <a href="https://docs.npmjs.com/cli-documentation/">https://docs.npmjs.com/cli-documentation</a>. To install all
-        of the packages that are in the <code>package.json</code> file, use <code>npm install</code> in the same
-        directory.
-    </p>
-    <h3 id="json"><b>JSON</b></h3>
-    <p>JavaScript Object Notation (JSON) is a lightweight data format for storing and transporting data on the internet,
-        JSON is has similar structure to Objects in JavaScript and that makes it readable even though it has the same
-        structure it has different rules such as all strings (keys or values) should have double quotes around them also
-        another important rule would be that it shouldn't have any trailing commas.</p>
-    <p>Use this <a href="https://jsonformatter.curiousconcept.com/">website</a> to validate and format JSON data</p>
-    <p>an example of JSON:</p>
-    <pre><code class="language-javascripton"><code><div>{
-  &quot;name&quot;: &quot;john&quot;,
-  &quot;age&quot;: 25,
-  &quot;children&quot;: [&quot;jane&quot;, &quot;mark&quot;],
-  &quot;job&quot;: {
-    &quot;position&quot;: &quot;software engineer&quot;,
-    &quot;salary&quot;: 700
-  }
-}
-</div></code></code></pre>
-    <p>Handling JSON in javaScript:</p>
-    <pre><code class="language-javascript"><div><span class="hljs-comment">// we can turn the following array into JSON format by using the JSON.stringify</span>
-<span class="hljs-keyword">const</span> stringifiedArray = <span class="hljs-built_in">JSON</span>.stringify([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]);
-stringifiedArray; <span class="hljs-comment">// =&gt; &quot;[1,2,3]&quot;</span>
+    <ol>
+        <li>A Bit of Background on Kali Linux</li>
+        <li>What is Terminal and running our first few commands</li>
+        <li>File System commands</li>
+        <li>Searching for Files</li>
+        <li>starting with Shell Operators</li>
+    </ol>
+    <h2 id="a-bit-of-background-on-kali-linux"><b>A Bit of Background on Kali Linux</b></h2>
+    <p>Kali Linux is an open-source project that aims to provide advanced Penetration Testing and security auditing
+        tools. It contains hundreds of tools that are designed to address various security tasks, such as Computer
+        Forensics and Security Research.</p>
+    <h2 id="what-is-terminal-and-running-our-first-few-commands"><b>What is Terminal and running our first few
+            commands</b>
+    </h2>
+    <p>The &quot;Terminal&quot; it is a text-based interface that allows you to enter commands, execute them, and view
+        the results.</p>
+    <pre><code>→ This is what a terminal looks like
+┌──(tetra㉿kali)-[~]
+└─$ enter commands here
+</code></pre>
+    <p>Let's get started with two of the first commands, which I have broken down in the table below:</p>
+    <table>
+        <thead>
+            <tr>
+                <th>Command</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>echo</td>
+                <td>Output any text that we provide</td>
+            </tr>
+            <tr>
+                <td>whoami</td>
+                <td>Find out what user we're currently logged in as!</td>
+            </tr>
+        </tbody>
+    </table>
+    <pre><code>→ Using echo
+┌──(tetra㉿kali)-[~]
+└─$ echo Hello World
+ Hello World
 
-<span class="hljs-comment">// to turn back the stringified array back to normal you will have to parse it by using JSON.parse</span>
-<span class="hljs-keyword">const</span> array = <span class="hljs-built_in">JSON</span>.parse(stringifiedArray);
-array; <span class="hljs-comment">// =&gt; [1, 2, 3]</span>
-</div></code></pre>
-    <p>An example on package.json file:</p>
-    <pre><code class="language-javascripton"><code><div>{
-  &quot;name&quot;: &quot;auth&quot;,
-  &quot;version&quot;: &quot;1.0.0&quot;,
-  &quot;description&quot;: &quot;&quot;,
-  &quot;main&quot;: &quot;index.js&quot;,
-  &quot;scripts&quot;: {
-    &quot;start&quot;: &quot;node app.js&quot;,
-    &quot;dev&quot;: &quot;nodemon app.js&quot;,
-    &quot;test&quot;: &quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;
-  },
-  &quot;keywords&quot;: [],
-  &quot;author&quot;: &quot;&quot;,
-  &quot;license&quot;: &quot;ISC&quot;,
-  &quot;dependencies&quot;: {
-    &quot;bcrypt&quot;: &quot;^5.0.0&quot;,
-    &quot;cors&quot;: &quot;^2.8.5&quot;,
-    &quot;express&quot;: &quot;^4.17.1&quot;,
-    &quot;jsonwebtoken&quot;: &quot;^8.5.1&quot;,
-    &quot;mongoose&quot;: &quot;^5.9.20&quot;,
-    &quot;nodemon&quot;: &quot;^2.0.4&quot;
-  }
-}
-</div></code></code></pre>
-    <h3 id="npm-scripts"><b>NPM scripts</b></h3>
-    <p>Notice the <code>scripts</code> section in the <code>package.json</code> file example above. This means that it
-        is possible to run some scripts by using NPM.</p>
-    <p>To run the start script type <code>npm start</code>, to run the test script type <code>npm test</code>, and to
-        run other custom scripts type <code>npm run script-name</code>.</p>
-    <h2 id="expressjs">ExpressJS</h2>
-    <h3 id="what-is-expressjs"><b>What Is ExpressJS</b></h3>
-    <p>Express is a lightweight, minimal and flexible NodeJS framework. Check the documentation for more information on
-        express <a href="https://expressjs.com/">https://expressjs.com</a>.</p>
-    <h3 id="expressjs-installation">ExpressJS installation</h3>
-    <p>ExpressJS can be installed using NPM by typing in the following command <code>npm install express</code>.</p>
-    <h3 id="using-express"><b>Using Express</b></h3>
-    <p>In order to use Express it first must be required or imported. In order to require a package in NodeJS you will
-        have to use the <code>require</code> keyword with the package name such as
-        <code>require(&quot;express&quot;)</code>. Make sure that the package is installed and is present in the node
-        modules folder before requiring it, also in order to use express functionality we will have to save the required
-        package in a variable <code>const express = require(&quot;express&quot;)</code>.
+→ using whoami
+┌──(tetra㉿kali)-[~]
+└─$ whoami
+ tetra
+</code></pre>
+    <h2 id="file-system-commands"><b>File System commands</b></h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Command</th>
+                <th>Full Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>ls</td>
+                <td>listing</td>
+            </tr>
+            <tr>
+                <td>cd</td>
+                <td>change directory</td>
+            </tr>
+            <tr>
+                <td>cat</td>
+                <td>concatenate</td>
+            </tr>
+            <tr>
+                <td>pwd</td>
+                <td>print working directory</td>
+            </tr>
+        </tbody>
+    </table>
+    <h3 id="listing-files-in-our-current-directory-ls"><b>Listing Files in Our Current Directory (ls)</b></h3>
+    <p>This <code>ls</code> command will help us identify the contents of all files and folders in our system.</p>
+    <pre><code>→ Using &quot;ls&quot; to to list the contents of the current directory
+┌──(tetra㉿kali)-[~]
+└─$ ls
+'Download' 'My Documents' 'Notes' 'Pictures'
+</code></pre>
+    <blockquote>
+        <p><em>Pro tip: You can list the contents of a directory without having to navigate to it by using
+                <strong>ls</strong> and the name of the directory. I.e. <code>ls Pictures</code></em></p>
+    </blockquote>
+    <h3 id="changing-our-current-directory-cd"></b>Changing Our Current Directory (cd)<b></h3>
+    <p>we need to use the <strong><code>cd</code></strong> command (short for <strong>c</strong>hange
+        <strong>d</strong>irectory) to change to that directory.
     </p>
-    <p>Here is an example of creating a basic server using express:</p>
-    <pre><code class="language-javascript"><div><span class="hljs-comment">// require express</span>
-<span class="hljs-keyword">const</span> express = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;express&quot;</span>);
-<span class="hljs-comment">// instantiate express</span>
-<span class="hljs-keyword">const</span> app = express();
-<span class="hljs-keyword">const</span> port = <span class="hljs-number">5000</span>;
+    <pre><code> → using cd
+┌──(tetra㉿kali)-[~]
+└─$ cd Pictures
 
-<span class="hljs-comment">// run the server locally on the desired port, use the following link to open up the server http://localhost:5000`</span>
-app.listen(port, <span class="hljs-function">() =&gt;</span> {
-  <span class="hljs-comment">// will log to the command line when the server starts</span>
-  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`Example app listening at http://localhost:<span class="hljs-subst">${port}</span>`</span>);
-});
-</div></code></pre>
-    <h3 id="running-the-server"><b>Running the server</b></h3>
-    <p>In order to run the server type <code>node file-name.js</code>, after every change the server must be stopped by
-        pressing <code>ctrl + c</code>and ran again so the changes take effect.</p>
-    <p>Instead, we can use an NPM package called <code>nodemon</code> to automatically restart the server after every
-        change. To install the package globally, type the following in the command line:
-        <code>npm i nodemon --global</code>. After the installation is complete, type <code>nodemon file-name.js</code>
-        to watch for changes and restart the server if needed.
+┌──(tetra㉿kali)-[~/Pictures]
+└─$ ls
+dog_picture1.jpg cat_picture1.jpg dog_picture2.jpg cat_picture2.jpg
+</code></pre>
+    <h3 id="outputting-the-contents-of-a-file-cat"><b>Outputting the Contents of a File (cat)</b></h3>
+    <p>In this tutorial, we'll talk about a command called <strong>cat</strong>, which will output the contents of text
+        files.
+        ┌──(tetra㉿kali)-[~/Documents]
+        └─<span class="katex-display"><span class="katex"><span class="katex-mathml"><math
+                        xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+                        <semantics>
+                            <mrow>
+                                <mi>l</mi>
+                                <mi>s</mi>
+                                <mi>t</mi>
+                                <mi>o</mi>
+                                <mi>d</mi>
+                                <mi>o</mi>
+                                <mi mathvariant="normal">.</mi>
+                                <mi>t</mi>
+                                <mi>x</mi>
+                                <mi>t</mi>
+                                <mo>→</mo>
+                                <mi>U</mi>
+                                <mi>s</mi>
+                                <mi>i</mi>
+                                <mi>n</mi>
+                                <mi>g</mi>
+                                <mi>c</mi>
+                                <mi>a</mi>
+                                <mi>t</mi>
+                                <mo stretchy="false">┌</mo>
+                                <mtext>──</mtext>
+                                <mo stretchy="false">(</mo>
+                                <mi>t</mi>
+                                <mi>e</mi>
+                                <mi>t</mi>
+                                <mi>r</mi>
+                                <mi>a</mi>
+                                <mtext>㉿</mtext>
+                                <mi>k</mi>
+                                <mi>a</mi>
+                                <mi>l</mi>
+                                <mi>i</mi>
+                                <mo stretchy="false">)</mo>
+                                <mo>−</mo>
+                                <mo stretchy="false">[</mo>
+                                <mtext> </mtext>
+                                <mi mathvariant="normal">/</mi>
+                                <mi>D</mi>
+                                <mi>o</mi>
+                                <mi>c</mi>
+                                <mi>u</mi>
+                                <mi>m</mi>
+                                <mi>e</mi>
+                                <mi>n</mi>
+                                <mi>t</mi>
+                                <mi>s</mi>
+                                <mo stretchy="false">]</mo>
+                                <mo stretchy="false">└</mo>
+                                <mtext>─</mtext>
+                            </mrow>
+                            <annotation encoding="application/x-tex"> ls
+                                todo.txt
+                                → Using cat
+                                ┌──(tetra㉿kali)-[~/Documents]
+                                └─</annotation>
+                        </semantics>
+                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut"
+                            style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal"
+                            style="margin-right:0.01968em;">l</span><span class="mord mathnormal">s</span><span
+                            class="mord mathnormal">t</span><span class="mord mathnormal">o</span><span
+                            class="mord mathnormal">d</span><span class="mord mathnormal">o</span><span
+                            class="mord">.</span><span class="mord mathnormal">t</span><span
+                            class="mord mathnormal">x</span><span class="mord mathnormal">t</span><span class="mspace"
+                            style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span><span
+                            class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span
+                        class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span
+                            class="mord mathnormal" style="margin-right:0.10903em;">U</span><span
+                            class="mord mathnormal">s</span><span class="mord mathnormal">in</span><span
+                            class="mord mathnormal" style="margin-right:0.03588em;">g</span><span
+                            class="mord mathnormal">c</span><span class="mord mathnormal">a</span><span
+                            class="mord mathnormal">t</span><span class="mopen amsrm">┌</span><span
+                            class="mord">──</span><span class="mopen">(</span><span
+                            class="mord mathnormal">t</span><span class="mord mathnormal">e</span><span
+                            class="mord mathnormal">t</span><span class="mord mathnormal"
+                            style="margin-right:0.02778em;">r</span><span class="mord mathnormal">a</span><span
+                            class="mord">㉿</span><span class="mord mathnormal">ka</span><span class="mord mathnormal"
+                            style="margin-right:0.01968em;">l</span><span class="mord mathnormal">i</span><span
+                            class="mclose">)</span><span class="mspace"
+                            style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span
+                            class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span
+                        class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span
+                            class="mopen">[</span><span class="mspace nobreak"> </span><span class="mord">/</span><span
+                            class="mord mathnormal">Doc</span><span class="mord mathnormal">u</span><span
+                            class="mord mathnormal">m</span><span class="mord mathnormal">e</span><span
+                            class="mord mathnormal">n</span><span class="mord mathnormal">t</span><span
+                            class="mord mathnormal">s</span><span class="mclose">]</span><span
+                            class="mopen amsrm">└</span><span class="mord">─</span></span></span></span></span> cat
+        todo.txt
+        This is the what cat showing for us!</p>
+    <p>We've applied some knowledge from earlier in this section to do the following:</p>
+    <ol>
+        <li>Used <strong><code>ls</code></strong> to let us know what files are available in the &quot;Documents&quot;
+            folder of this machine. In this case, it is called &quot;todo.txt&quot;.</li>
+        <li>We have then used <code>cat todo.txt</code> to concatenate/output the contents of this &quot;todo.txt&quot;
+            file, where the contents are &quot;Here's something important for me to do later</li>
+    </ol>
+    <blockquote>
+        <p><em>Pro tip: You can also output the contents of a file without having to navigate it by using cat..
+                <code>cat /home/Kali/Documents/todo.txt</code></em></p>
+    </blockquote>
+    <h3 id="finding-out-the-full-path-to-our-current-working-directory-pwd"><b>Finding out the full Path to our Current
+            Working Directory (pwd)</b></h3>
+    <p>It's easy to lose track of where we are on the file system exactly, which is why I want to introduce
+        <strong><code>pwd</code></strong>. This stands for <strong>p</strong>rint <strong>w</strong>orking
+        <strong>d</strong>irectory.
     </p>
-    <h3 id="important-note"><b>Important note</b></h3>
-    <p>The goal of this lesson is to familiarizes yourself with some important terms and keywords that will be used in
-        future lessons, so make sure to read the lesson again to have a better understanding on these new topics, the
-        questions below will cover all the main points of the lesson along side introducing you to the npm documentation
-        so please ask for help if you have any problems with the questions or how to use the documentation to access the
-        needed information.</p>
-    <h3 id="pulse-check"><b>Pulse Check</b></h3>
+    <pre><code>┌──(tetra㉿kali)-[~/Documents]
+└─$ pwd
+/home/tetra/Documents
+</code></pre>
+    <h2 id="searching-for-files"><b>Searching for Files</b></h2>
+    <p>One fantastic way to show just how efficient you can be with systems like this is using a set of commands to
+        quickly search for files across the entire system that our user has access to. No need to consistently use
+        <code>cd</code> and <code>ls</code> to find out what is where. we can will use command <code>find</code>.
+    </p>
+    <h3 id="using-find"><strong><b>Using Find</b></strong></h3>
+    <p>Take the snippet below, we can see a list of directories available to us:</p>
+    <pre><code>┌──(tetra㉿kali)-[~]
+└─$ ls
+Desktop Documents Pictuers folder1
+
+┌──(tetra㉿kali)-[~]
+└─$ find -name passwords.txt
+./folder1/passwords.txt
+</code></pre>
+    <p><strong>&quot;Find&quot;</strong> has managed to <em>find</em> the file — it turns out it is located in
+        folder1/passwords.txt.</p>
+    <p>We can use what's known as a wildcard <strong>(*)</strong> to search for anything that has .txt at the end.</p>
+    <pre><code>┌──(tetra㉿kali)-[~]
+└─$ find -name *.txt
+./folder1/passwords.txt
+./Documents/todo.txt
+</code></pre>
+    <p>Find has managed to <em>find</em>:</p>
+    <ol>
+        <li>&quot;passwords.txt&quot; located within &quot;folder1&quot;</li>
+        <li>&quot;todo.txt&quot; located within &quot;Documents&quot;</li>
+    </ol>
+    <h2 id="starting-with-shell-operators">starting with Shell Operators</h2>
+    <p><strong>Shell-operator</strong> is a tool for running event-driven scripts in a Kubernetes cluster.</p>
+    <table>
+        <thead>
+            <tr>
+                <th>Symbol / Operator</th>
+                <th>Description</th>
+                <th>How we use it</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>&amp;</td>
+                <td>This operator allows you to run commands in the background of your terminal.</td>
+                <td>The &quot;&amp;&quot; shell operator allows us to execute a command and have it run in the
+                    background (such as this file copy) allowing us to do other things!</td>
+            </tr>
+            <tr>
+                <td>&amp;&amp;</td>
+                <td>This operator allows you to combine multiple commands together in one line of your terminal.</td>
+                <td>for example <code>command1 &amp;&amp; command2</code>. However, it's worth noting that
+                    <code>command2</code> will only run if <code>command1</code> was successful.
+                </td>
+            </tr>
+            <tr>
+                <td>&gt;</td>
+                <td>This operator is a redirector - meaning that we can take the output from a command (such as using
+                    cat to output a file) and direct it elsewhere.</td>
+                <td>Let's say we wanted to create a file named &quot;welcome&quot; with the message &quot;hello
+                    world&quot;. We can run <code>echo hello world &gt; welcome</code> where we want the file created
+                    with the contents &quot;hello world&quot;</td>
+            </tr>
+            <tr>
+                <td>&gt;&gt;</td>
+                <td>This operator does the same function of the <code>&gt;</code> operator but appends the output rather
+                    than replacing (meaning nothing is overwritten).</td>
+                <td>The <code>&gt;&gt;</code> operator allows to append the output to the bottom of the file — rather
+                    than replacing the contents <code>echo hello &gt;&gt; welcome</code></td>
+            </tr>
+        </tbody>
+    </table>
+    <h2 id="practice"><b>Practice</b></h2>
+    <p>You Can answer these Question in this form [add Google form]</p>
     <ol>
         <li>
-            <p>Install NodeJS.</p>
+            <p>What year was the first release of a Linux operating system?</p>
         </li>
         <li>
-            <p>Run NodeJS in the terminal to make sure it is installed.</p>
-        </li>
-        <li>
-            <p>Create the following JS file (index.js) and run it using NodeJS.</p>
-            <pre><code class="language-javascript"><div><span class="hljs-keyword">const</span> a = <span class="hljs-number">10</span>;
-<span class="hljs-keyword">const</span> b = <span class="hljs-number">20</span>;
-
-<span class="hljs-built_in">console</span>.log(a + b);
-</div></code></pre>
-        </li>
-        <li>
-            <p>Using NPM install the <code>nodemon</code> package globally.</p>
-        </li>
-        <li>
-            <p>Using NPM initialize a <code>package.json</code> in the practice folder and install the
-                <code>express</code> package.
+            <p>If we wanted to output the text &quot;<strong>MerakiAcademy</strong>&quot;, what would our command be?
             </p>
         </li>
         <li>
-            <p>Read the following documentation <a
-                    href="https://docs.npmjs.com/cli-documentation">https://docs.npmjs.com/cli-documentation</a> and
-                figure our how to uninstall the <code>express</code> package.</p>
+            <p>If we wanted to run a command in the background, what operator would we want to use?</p>
         </li>
         <li>
-            <p>Create a start script that runs <code>index.js</code> using node, and run it.</p>
+            <p>If I wanted to replace the contents of a file named &quot;passwords&quot; with the word
+                &quot;password123&quot;, what would my command be?</p>
         </li>
         <li>
-            <p>Create a script called <code>dev</code> that runs <code>index.js</code> using nodemon, and run it.</p>
-        </li>
-        <li>
-            <p>Create a script that would create a new file <code>server.js</code> using the keyword <code>touch</code>,
-                and run it.</p>
-        </li>
-        <li>
-            <p>Create a basic express server in <code>server.js</code> and run it using nodemon.</p>
+            <p>Now if I wanted to add &quot;MerakiAcademy&quot; to this file named &quot;passwords&quot; but also keep
+                &quot;passwords123&quot;, what would my command be.</p>
         </li>
     </ol>
-
     <script src="main.js"></script>
+
 </body>
 
 </html>
